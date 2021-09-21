@@ -34,6 +34,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 - Metricbeat is used to collect metrics from the system and services which helps you to monitor the servers better.
 
 The configuration details of each machine may be found below.
+_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name    | Function   | Ip Address | Operating System |
 |---------|------------|------------|------------------|
@@ -54,36 +55,19 @@ Machines within the network can only be accessed by the personal computer.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name    | Publicly Accessible | Allowed Ip Address |
-|---------|---------------------|--------------------|
-| Jumpbox | Yes                 | My own IP          |
-| Web 1   | No                  | Jumpbox IP         |
-| Web 2   | No                  | Jumpbox IP         |
-| ELK     | Yes                 | My own IP          |
+| Name     | Publicly Accessible | Allowed IP Addresses |
+|----------|---------------------|----------------------|
+| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
+|          |                     |                      |
+|          |                     |                      |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because system installtion and update can be more simole and effective and able to limit the services. Services and proccesses can be also replicated easily.
-- The advantage of automating configuration with Ansible is to able to make many services at once which is good for companies that are in need for many of them.
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
+- _TODO: What is the main advantage of automating configuration with Ansible?_
 
 The playbook implements the following tasks:
-- 'name: Install docker.io
-   apt:
-     update_cache: yes
-     force_apt_get: yes
-     name: docker.io
-     state: present
-   
-   name: Install python3-pip
-   apt:
-     force_apt_get: yes
-     name: python3-pip
-     state: present
-   
-   name: Install Docker module
-   pip:
-     name: docker
-     state: present'
+- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - ...
 - ...
 

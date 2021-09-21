@@ -66,30 +66,39 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because system installtion and update can be more simole and effective and able to limit the services. Services and proccesses can be also replicated easily.
 - The advantage of automating configuration with Ansible is to able to make many services at once which is good for companies that are in need for many of them.
 
-The playbook implements the following tasks:
-- `name: Install docker.io
-   apt:
+The playbook implements the following tasks (Don't know why they are all in one line, it's not like this in the text editor):
+- Installs docker.io, python3-pip and the Docker module
+   `name: Install docker.io
+    apt:
      update_cache: yes
      force_apt_get: yes
      name: docker.io
      state: present`
 
    `name: Install python3-pip
-   apt:
+    apt:
      force_apt_get: yes
      name: python3-pip
      state: present`
    
    `name: Install Docker module
-   pip:
+    pip:
      name: docker
      state: present`
-- ...
-- ...
+- Increases the memory through command for virtual machine
+   `name: Increase virtual memory
+    command: sysctl -w vm.max_map_count=262144`
+- Uses more memory with sysctl
+   `name: Use more memory
+    sysctl:
+      name: vm.max_map_count
+      value: 262144
+      status: present
+      reload: yes`
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![alt text](https://github.com/Bradenkh1/Week13HW/blob/main/Ansible/2021-09-20%2022_32_15-azadmin%40ELK.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
